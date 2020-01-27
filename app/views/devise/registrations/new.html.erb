@@ -1,0 +1,28 @@
+<section>
+    <h2>Sign up</h2>
+    <div>
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+            <%= devise_error_messages! %>
+            <div>
+                <label>Name</label>
+                <%= f.text_field :name, autofocus: true, class:"form-control", id:"inputEmail"%>
+            </div>
+            <div>
+                <label>Email</label>
+                <%= f.email_field :email, class:"form-control", id:"inputEmail"%>
+            </div>
+            <div>
+                <label>Password</label>
+                <%= f.password_field :password, autocomplete: "off", class:"form-control", id:"inputPassword" %>
+            </div>
+            <div>
+                <label>Password</label>
+                <%= f.password_field :password_confirmation, autocomplete: "off", class:"form-control", id:"inputConfirmPassword" %>
+            </div>
+            <%= f.submit "Sign up" %>
+        <% end %>
+        <div>
+            <%= link_to "Log in", new_user_session_path %>
+        </div>
+    </div>
+</section>

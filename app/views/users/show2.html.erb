@@ -1,0 +1,22 @@
+<div class="profile-container">
+	<h2>Users Show</h2>
+
+	<%= attachment_image_tag @user, :profile_image, :fill, 60, 60, format: 'jpeg', class: "img-circle pull-left profile-img", fallback: "no_image.jpg" %>
+
+	<table>
+		<tbody>
+			<tr>
+				<th width = "100" height = "20">name</th>
+				<th width = "100" height = "20"><%= @user.name %></th>
+			</tr>
+			<tr>
+				<th width = "100" height = "20">introduction</th>
+				<th width = "100" height = "20"><%= @user.introduction %></th>
+			</tr>
+		</tbody>
+	</table>
+
+    <% if @user.id == current_user.id %>
+    <p><%= link_to "プロフィール編集", edit_user_path(@user), class: "pull-right" %></p>
+    <% end %>
+</div>
