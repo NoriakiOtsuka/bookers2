@@ -1,22 +1,26 @@
-<section>
+<div class="body">
+  <div class="container">
     <h2>Log in</h2>
     <div>
-        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-            <%= devise_error_messages! %>
-            <div>
-                <label>Name</label>
-                <%= f.text_field :name, autofocus: true, class:"form-control", id:"inputName"%>
-            </div>
-            <div>
-                <label>Password</label>
-                <%= f.password_field :password, autocomplete: "off", class:"form-control", id:"inputName" %>
-            </div>
-            <div>remember me 予定</div>
-            <%= f.submit "Log in" %>
-        <% end %>
-
-        <div>
-            <%= link_to "Sign up", new_user_registration_path %>
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <%= devise_error_messages! %>
+        <div class="field">
+          <label for="user_name">Name</label><br>
+            <input autofocus="autofocus" class="name" type="text" name="user[name]" id="user_name">
         </div>
+        <div class="field">
+          <label for="user_password">Password</label><br>
+          <input autocomplete="off" class="password" type="password" name="user[password]" id="user_password">
+        </div>
+        <div class="field">
+          <input name="user[remember_me]" type="hidden" value="0"><input type="checkbox" value="1" name="user[remember_me]" id="user_remember_me">
+          <label for="user_remember_me">Remember me</label>
+        </div>
+          <input type="submit" name="commit" value="Log in" class="btn btn-primary" data-disable-with="Log in">
+      <% end %>
+        <a class="sign_up" href="/users/sign_up">Sign up</a>
+        <br>
+        <a href="/users/password/new">Forgot your password?</a>
     </div>
-</section>
+  </div>
+</div>
